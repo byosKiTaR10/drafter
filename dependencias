@@ -1,3 +1,5 @@
 npm install -g nodemon
 npm install express
 npm install cors
+npm install mongodb
+npm install mongodb@6.3
