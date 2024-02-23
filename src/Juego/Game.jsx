@@ -1,75 +1,27 @@
+import { useState, useEffect } from "react";
 const Game = () => {
-    const getChampions = async () => {
-        try{
-            fetch('http://localhost:3030/Champions')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Error de red: ${response.status}`);
-                    }
-                    return response.json()
-                })
-                .then(data => {
-
-                })
-                .catch (error => {
-                    console.error('Error en la solicitud', error)
-                })
-        } catch (err) {
-            console.error('Error obteniendo los campeones')
-        }
-    }
-}
-
-/**class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedChampions: [],
-      availableChampions: [
-        "Ahri", "Akali", "Alistar", "Amumu", "Anivia", // Lista de campeones disponibles
-        // Aquí puedes añadir más campeones si lo deseas
-      ]
-    };
-  }
-
-  selectChampion(champion) {
-    if (this.state.selectedChampions.length < 5) {
-      this.setState(prevState => ({
-        selectedChampions: [...prevState.selectedChampions, champion],
-        availableChampions: prevState.availableChampions.filter(c => c !== champion)
-      }));
+  const [champions, setChampions] = useState([]);
+  const getChampions = async () => {
+    try {
+      const response = await fetch('http://localhost:3030/Champions');
+      if (!response.ok) {
+        throw new Error(`Error de red: ${response.status}`);
+      }
+      const campeones = await response.json();
+      setChampions(campeones);
+    } catch (error) {
+      console.error('Error en la solicitud', error);
     }
   }
-
-  render() {
-    const { selectedChampions, availableChampions } = this.state;
-
-    return (
-      <div>
-        <h1>Selección de Campeón</h1>
-        <div>
-          <h2>Campeones Seleccionados:</h2>
-          <ul>
-            {selectedChampions.map((champion, index) => (
-              <li key={index}>{champion}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2>Campeones Disponibles:</h2>
-          <ul>
-            {availableChampions.map((champion, index) => (
-              <li key={index}>
-                <button onClick={() => this.selectChampion(champion)}>
-                  {champion}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    getChampions();
+  }, []);
+  return (
+    <div className="content">
+      <h1>Champ select</h1>
+      <p>{champions.toString()}</p>
+    </div>
+  );
 }
-*/
+
 export default Game;
