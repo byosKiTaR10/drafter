@@ -1,0 +1,82 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'BeaufortforLOL-Bold';
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #141516;
+  
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  #root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  
+  @font-face {
+    font-family: 'BeaufortforLOL-Bold';
+    src: url('./assets/fonts/BeaufortforLOL-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BeaufortforLOL-BoldItalic';
+    src: url('./assets/fonts/BeaufortforLOL-BoldItalic.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BeaufortforLOL-Heavy';
+    src: url('./assets/fonts/BeaufortforLOL-Heavy.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  button {
+    /* Eliminar bordes */
+    border: none;
+  
+    /* Eliminar fondo */
+    background-color: transparent;
+  
+    /* Ajustar el relleno y el margen según sea necesario */
+    padding: 0;
+    margin: 0;
+  
+    /* Restablecer la fuente si es necesario */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  
+    width: 100%;
+    cursor: pointer;
+    /* Otros estilos a anular según sea necesario */
+    /* E.g., outline, box-shadow, etc. */
+  }
+  

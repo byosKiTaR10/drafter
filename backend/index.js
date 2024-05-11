@@ -26,7 +26,7 @@ app.get('/Champions', (req, res) => {
     db.collection('Champions')
         .find()                   // .find({}, { name: 1, img: 1, _id: 0 }) // Proyectar los campos 'name' y 'img', excluir '_id'
         .sort({ name: 1 })
-        .forEach(champion => champions.push({ name: champion.name, position: champion.position, img: champion.img })) // .forEach(champion => championsData.push({ name: champion.name, img: champion.img })) // Agregar nombre y img al array
+        .forEach(champion => champions.push({ name: champion.name, position: champion.position, damageType: champion.damageType, damageAmount: champion.damageAmount, src: champion.src })) // .forEach(champion => championsData.push({ name: champion.name, img: champion.img })) // Agregar nombre y img al array
         .then(() => {
             res.status(200).json(champions)
         })
